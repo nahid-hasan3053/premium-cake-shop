@@ -1,5 +1,7 @@
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import CheckoutModal from '../ChekoutModal/CheckoutModal';
+import { useState } from 'react';
 
 const OrderItems = () => {
     
@@ -19,10 +21,12 @@ const OrderItems = () => {
                     </div>
                     <p className="flex items-center"><div className='flex'><FaStar></FaStar ><FaStar></FaStar><FaStar></FaStar></div>{review}</p>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Chekout</button>
+                    <label htmlFor="checkout-modal" className="btn btn-primary">Chekout</label>
+
                     </div>
                 </div>
             </div>
+            <CheckoutModal product={product}></CheckoutModal>
         </div>
     );
 };
