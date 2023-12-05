@@ -1,15 +1,13 @@
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import CheckoutModal from '../ChekoutModal/CheckoutModal';
-import { useState } from 'react';
-
 const OrderItems = () => {
     
     const product = useLoaderData();
     const {flavour, title, img, description, review, price} = product
 
     return (
-        <div className='my-14'>
+        <div className='my-14 mx-5 md:mx-2'>
             <div className="card card-side md:w-8/12 px-3  md:mx-auto bg-base-100 shadow-xl flex-col md:flex-row">
                 <figure><img src={img} className='md:h-[400px] p-2' alt="Movie"/></figure>
                 <div className="card-body md:w-1/2">

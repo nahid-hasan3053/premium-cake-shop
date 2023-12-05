@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>{})
+        .catch(error => console.log(error))
+    }
 
     const menueItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li> 
         <li className='font-semibold'><Link to='/catalog'>Catalog</Link></li> 
         <li className='font-semibold'><Link to='/order'>Order</Link></li> 
         <li className='font-semibold'><Link to='/contact'>Contact</Link></li>  
-        <li className='font-semibold'><Link to='/login'>Login</Link></li>  
-        <li className='font-semibold'><Link to='/register'>Register</Link></li>  
-    </>
+            {
+                user?.uid?
+                    <li onClick={handleLogOut} className='font-semibold'><Link>Logout</Link></li>  
+                :
+                <>
+                    <li className='font-semibold'><Link to='/login'>Login</Link></li>  
+                    <li className='font-semibold'><Link to='/register'>Register</Link></li>
+                </>
+            }
+         </>
+
 
     return (
         <div className="navbar rounded-md">
