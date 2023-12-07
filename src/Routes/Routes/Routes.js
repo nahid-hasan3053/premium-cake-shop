@@ -5,6 +5,7 @@ import OrderItems from "../../Pages/OrderItems/OrderItems/OrderItems";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Orders from "../../Pages/Orders/Orders/Orders";
 
 export const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/orders',
+                element: <Orders></Orders>
             },
             {
                 path: '/login',

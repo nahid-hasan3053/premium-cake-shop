@@ -1,17 +1,14 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import Loading from '../../Pages/SharedPages/Loading/Loading';
 
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext)
     const location = useLocation()
     
     if(loading){
-        return  <div>
-                    <span className="loading loading-ball loading-md"></span>
-                    <span className="loading loading-ball loading-md"></span>
-                    <span className="loading loading-ball loading-md"></span>
-                </div>
+        return  <Loading></Loading>
     }
 
     if(user){
